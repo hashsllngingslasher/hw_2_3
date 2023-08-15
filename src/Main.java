@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
@@ -16,7 +15,7 @@ public class Main {
             }catch (LimitException le) {
                 System.out.println(le.getMessage());
                 try {
-                    account.withDraw((int) account.getAmount());
+                    account.withDraw((int) le.getRemainingAmount());
                 }catch (LimitException le2){
                     throw new RuntimeException(le2);
                 }
